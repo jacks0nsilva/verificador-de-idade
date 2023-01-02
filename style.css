@@ -49,3 +49,9 @@ a{
     text-decoration: none;
     color: white;
 }
+
+@media only screen and (max-width: 450px){
+    section{
+        width: 85vw;
+    }
+}
