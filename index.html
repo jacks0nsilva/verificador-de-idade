@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Exercício</title>
+    <style>
+
+        body{
+            background-color: #1e3e63d7;
+            font: normal 15pt Arial;
+        }
+        header{
+            color: white;
+            text-align: center;
+        }
+        section{
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.445);
+        }
+        input, label{
+            margin: 10px 0px;
+        }
+        #botao{
+            width: 80px;
+            border-radius: 10px;
+            background-color: #1e3e63d7;
+            cursor: pointer;
+            color: white;
+            border-width: 0px;
+        }
+        #botao:hover{
+            background-color: #4282ccd7;
+        }
+        div#imagem{
+            text-align: center;
+        }
+        img{
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+        }
+        footer{
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+
+        a{
+            text-align: center;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Verificador de idade
+        </h1>
+    </header>
+    <section>
+        <div id="informacoes">
+            <label for="nascimento">Ano de Nascimento:</label>
+            <input type="number" name="nascimento" id="nascimento">
+            <br>
+            <label for="sexo">Sexo:</label>
+            <input type="radio" name="sexo" id="masculino" value="Masculino">
+            <label for="masculino">Masculino</label>
+            <input type="radio" name="sexo" id="feminino" value="Feminino">
+            <label for="feminino">Feminino</label>
+            <br>
+            <input type="button" value="VERIFICAR" id="botao" onclick="VerificadorDeIdade()">
+        </div>
+        <div id="imagem">
+            <img src="profile-icon.webp" alt="Criança" id="img">
+            <p id="resultado"></p>
+        </div>
+    </section>
+    <footer>
+        <p>Desenvolvido por <a href="https://github.com/jacks0nsilva" target="_blank"><strong>Jackson Silva</strong></a></p>
+    </footer>
+
+
+    <script>
+        // puxar sexo masculino e feminino por jquery
+
+        function VerificadorDeIdade(){
+            let resultado = document.getElementById('resultado')
+            let DataNascimento = document.getElementById('nascimento')
+            let img = document.getElementById('img')
+            let nascimento = Number(DataNascimento.value)
+            let data = new Date()
+            let ano = data.getFullYear()
+            let idade = ano - nascimento
+            let gender = document.querySelector('input[type="radio"]:checked')
+            let sexo = gender.value
+
+            if (sexo == ``|| nascimento > 2023 || nascimento < 0){
+                window.alert(`INSIRA UMA DATA CORRETA`)              
+            } else if (idade > 150){
+                resultado.innerHTML `ERRO`
+            }
+            
+              else if (idade < 14 && sexo == `Masculino`){
+                
+                resultado.innerHTML = `Detectamos um homem, com ${idade} anos de idade!`
+                img.src = "kid-man.jpg"
+            } else if (idade < 14 && sexo == `Feminino`){
+
+                resultado.innerHTML = `Detectamos uma mulher, com ${idade} anos de idade!`
+                img.src = "kid-woman.jpg"
+            } else if (idade >= 14 && idade <= 35 && sexo == `Masculino`){
+
+                resultado.innerHTML = `Detectamos um homem, com ${idade} anos de idade!`
+                img.src = "young-man.jpg"
+
+            } else if (idade >= 14 && idade <= 35 && sexo == `Feminino`){
+
+                resultado.innerHTML = `Detectamos uma mulher, com ${idade} anos de idade!`
+                img.src = "young-woman.jpg"
+            } else if (idade > 35 && idade <= 60 && sexo == `Masculino`){
+
+                resultado.innerHTML = `Detectamos um homem, com ${idade} anos de idade!`
+                img.src = "man.jpg"
+            } else if (idade > 35 && idade <= 60 && sexo == `Feminino`){
+
+                resultado.innerHTML = `Detectamos uma mulher, com ${idade} anos de idade!`
+                img.src = "woman.webp"
+            } else if (idade > 60 && sexo == `Masculino`){
+
+                resultado.innerHTML = `Detectamos um homem, com ${idade} anos de idade!`
+                img.src = "old-man.jpg"
+            } else if (idade > 60 && sexo == `Feminino`){
+
+                resultado.innerHTML = `Detectamos uma mulher, com ${idade} anos de idade!`
+                img.src = "old-woman.webp"
+            }
+        }
+
+     /*   function teste(){
+            let idade = document.getElementById('nascimento')
+            let teste = document.getElementById('teste')
+            let sexo  = document.querySelector('input[type="radio"]:checked');
+            if (sexo.value == 'masculino'){
+                teste.innerHTML += `kkkkkkkkkkkk`
+            } else{
+                teste.innerHTML = `kmfimfudnfudf`
+            }
+            teste.innerHTML = (typeof idade)
+        }*/
+    </script>
+</body>
+</html>
