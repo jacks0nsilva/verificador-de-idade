@@ -52,15 +52,3 @@
                 img.src = "images/old-woman.webp"
             }
         }
-
-     /*   function teste(){
-            let idade = document.getElementById('nascimento')
-            let teste = document.getElementById('teste')
-            let sexo  = document.querySelector('input[type="radio"]:checked');
-            if (sexo.value == 'masculino'){
-                teste.innerHTML += `kkkkkkkkkkkk`
-            } else{
-                teste.innerHTML = `kmfimfudnfudf`
-            }
-            teste.innerHTML = (typeof idade)
-        }*/
